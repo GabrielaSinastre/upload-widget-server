@@ -1,5 +1,7 @@
-import { env } from '@/env'
 import { fastifyCors } from '@fastify/cors'
+import fastifyMultipart from '@fastify/multipart'
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUi from '@fastify/swagger-ui'
 import { fastify } from 'fastify'
 import {
   hasZodFastifySchemaValidationErrors,
@@ -7,10 +9,8 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+import { env } from '@/env'
 import { uploadImageRoute } from './routes/upload-image'
-import fastifyMultipart from '@fastify/multipart'
-import fastifySwagger from '@fastify/swagger'
-import fastifySwaggerUi from '@fastify/swagger-ui'
 
 const server = fastify()
 
@@ -38,10 +38,10 @@ server.register(fastifySwagger, {
   openapi: {
     info: {
       title: 'Upload Widget Server',
-      version: '1.0.0'
-    }
+      version: '1.0.0',
+    },
   },
-  transform: jsonSchemaTransform
+  transform: jsonSchemaTransform,
 })
 server.register(fastifySwaggerUi, {
   routePrefix: '/docs',

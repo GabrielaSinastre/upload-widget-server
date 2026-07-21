@@ -29,8 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: npm/action-setup@v4
-        name: Installnpm
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
           version: 9
           run_install: false
@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: "pnpm"
 
-      - run: npm install --frozen-lockfile
-      - run: npm run test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run test

@@ -31,7 +31,11 @@ describe('export uploads', () => {
       searchQuery: namePattern,
     })
 
-    const generatedCSVStream = uploadStub.mock.calls[0][0].contentStream //acesso ao conteúdo que recebeu no contentstream
+    const uploadCall = uploadStub.mock.calls[0][0] as {
+      contentStream: NodeJS.ReadableStream
+    }
+    const generatedCSVStream = uploadCall.contentStream //acesso ao conteúdo que recebeu no contentstream
+    
     const csvAsString = await new Promise<string>((resolve, reject) => {
       const chunks: Buffer[] = []
 

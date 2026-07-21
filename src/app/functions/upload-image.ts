@@ -22,7 +22,7 @@ export async function uploadImage(
   const { contentStream, contentType, fileName } = uploadImageInput.parse(input)
 
   if (!allowedMimeTypes.includes(contentType)) {
-    makeLeft(new InvalidFileFormat())
+    return makeLeft(new InvalidFileFormat())
   }
 
   //TODO: carregar a imagem para o cloudfare r2

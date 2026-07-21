@@ -43,11 +43,11 @@ describe('upload-image', () => {
   })
 
   it('should not be able to upload an invalid file', async () => {
-    const fileName = `${randomUUID()}.jpg`
+    const fileName = `${randomUUID()}.pdf`
 
     // sut = system under test
     const sut = await uploadImage({
-      fileName: fileName,
+      fileName,
       contentType: 'document/pdf',
       contentStream: Readable.from([]),
     })

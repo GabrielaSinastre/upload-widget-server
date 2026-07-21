@@ -16,7 +16,6 @@ export type Right<U> = {
 // - Left (erro)
 // OU
 // - Right (sucesso)
-//
 // T = tipo do erro
 // U = tipo do sucesso
 //

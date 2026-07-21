@@ -1,10 +1,9 @@
 import { randomUUID } from 'node:crypto'
-import { getUploads } from '@/app/functions/get-uploads'
-
 import dayjs from 'dayjs'
 import { describe, expect, it } from 'vitest'
-import { isRight, unwrapEither } from '@/shared/either'
+import { getUploads } from '@/app/functions/get-uploads'
 import { makeUpload } from '@/factories/make-upload'
+import { isRight, unwrapEither } from '@/shared/either'
 
 describe('get uploads', () => {
   it('should be able to get the uploads', async () => {
